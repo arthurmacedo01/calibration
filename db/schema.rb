@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_06_175844) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_06_180219) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,6 +44,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_175844) do
     t.index ["client_id"], name: "index_equipments_on_client_id"
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "equipment_id", null: false
+    t.bigint "service_id", null: false
+    t.string "status"
+    t.text "obs"
+    t.text "accessories"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["equipment_id"], name: "index_order_items_on_equipment_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["service_id"], name: "index_order_items_on_service_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "doc_type"
     t.string "doc_number"
@@ -71,5 +85,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_175844) do
 
   add_foreign_key "equipment", "clients"
   add_foreign_key "equipments", "clients"
+  add_foreign_key "order_items", "equipment"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "services"
   add_foreign_key "services", "sections"
 end
