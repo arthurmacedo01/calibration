@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: %i[ show edit update destroy ]
+  before_action :set_sections, only: %i[ new edit ]
 
   # GET /services or /services.json
   def index
@@ -68,5 +69,9 @@ class ServicesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def service_params
       params.require(:service).permit(:description, :section_id)
+    end
+
+    def set_sections
+      @sections = Section.all
     end
 end

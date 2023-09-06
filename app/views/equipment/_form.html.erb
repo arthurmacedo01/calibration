@@ -31,10 +31,7 @@
     <%= form.text_field :serial_number %>
   </div>
 
-  <div>
-    <%= form.label :client_id, style: "display: block" %>
-    <%= form.text_field :client_id %>
-  </div>
+  <%= select_tag(:client_id, options_for_select(@clients.map{ |client| [client.name,client.id]})) %>
 
   <div>
     <%= form.submit %>

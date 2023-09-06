@@ -1,5 +1,6 @@
 class EquipmentController < ApplicationController
   before_action :set_equipment, only: %i[ show edit update destroy ]
+  before_action :set_clients, only: %i[ new edit ]
 
   # GET /equipment or /equipment.json
   def index
@@ -68,5 +69,9 @@ class EquipmentController < ApplicationController
     # Only allow a list of trusted parameters through.
     def equipment_params
       params.require(:equipment).permit(:description, :manufacturer, :model, :serial_number, :client_id)
+    end
+
+    def set_clients
+      @clients = Client.all
     end
 end
