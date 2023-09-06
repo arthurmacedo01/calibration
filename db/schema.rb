@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_06_174357) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_06_175844) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,38 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_174357) do
     t.string "name"
     t.string "division"
     t.string "subdivision"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "equipment", force: :cascade do |t|
+    t.text "description"
+    t.string "manufacturer"
+    t.string "model"
+    t.string "serial_number"
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_equipment_on_client_id"
+  end
+
+  create_table "equipments", force: :cascade do |t|
+    t.text "description"
+    t.string "manufacturer"
+    t.string "model"
+    t.string "serial_number"
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_equipments_on_client_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "doc_type"
+    t.string "doc_number"
+    t.integer "sigad"
+    t.string "nup"
+    t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,5 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_174357) do
     t.index ["section_id"], name: "index_services_on_section_id"
   end
 
+  add_foreign_key "equipment", "clients"
+  add_foreign_key "equipments", "clients"
   add_foreign_key "services", "sections"
 end

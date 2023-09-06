@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  doc_type: MyString
+  doc_number: MyString
+  sigad: 1
+  nup: MyString
+  date: 2023-09-06
+
+two:
+  doc_type: MyString
+  doc_number: MyString
+  sigad: 1
+  nup: MyString
+  date: 2023-09-06
