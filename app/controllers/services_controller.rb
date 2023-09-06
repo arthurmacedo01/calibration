@@ -49,12 +49,14 @@ class ServicesController < ApplicationController
 
   # DELETE /services/1 or /services/1.json
   def destroy
-    @service.destroy
-
-    respond_to do |format|
-      format.html { redirect_to services_url, notice: "Service was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    begin
+      @service.destroy
+      flash[:notice] = 'Service was successfully destroyed.'         
+    rescue ActiveRecord::DeleteRestrictionError => e
+      flash[:alert] = 'Cannot delete the model because it has associated records.'
+    ensure
+      redirect_to services_url  
+    end 
   end
 
   private

@@ -49,12 +49,14 @@ class EquipmentController < ApplicationController
 
   # DELETE /equipment/1 or /equipment/1.json
   def destroy
-    @equipment.destroy
-
-    respond_to do |format|
-      format.html { redirect_to equipment_index_url, notice: "Equipment was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    begin
+      @equipment.destroy
+      flash[:notice] = 'Equipment was successfully destroyed.'         
+    rescue ActiveRecord::DeleteRestrictionError => e
+      flash[:alert] = 'Cannot delete the model because it has associated records.'
+    ensure
+      redirect_to equipment_index_url  
+    end 
   end
 
   private

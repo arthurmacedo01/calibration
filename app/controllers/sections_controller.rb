@@ -49,12 +49,14 @@ class SectionsController < ApplicationController
 
   # DELETE /sections/1 or /sections/1.json
   def destroy
-    @section.destroy
-
-    respond_to do |format|
-      format.html { redirect_to sections_url, notice: "Section was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    begin
+      @section.destroy
+      flash[:notice] = 'Section was successfully destroyed.'         
+    rescue ActiveRecord::DeleteRestrictionError => e
+      flash[:alert] = 'Cannot delete the model because it has associated records.'
+    ensure
+      redirect_to sections_url  
+    end 
   end
 
   private

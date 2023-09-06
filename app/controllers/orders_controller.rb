@@ -49,11 +49,13 @@ class OrdersController < ApplicationController
 
   # DELETE /orders/1 or /orders/1.json
   def destroy
-    @order.destroy
-
-    respond_to do |format|
-      format.html { redirect_to orders_url, notice: "Order was successfully destroyed." }
-      format.json { head :no_content }
+    begin
+      @order.destroy
+      flash[:notice] = 'Order was successfully destroyed.'         
+    rescue ActiveRecord::DeleteRestrictionError => e
+      flash[:alert] = 'Cannot delete the model because it has associated records.'
+    ensure
+      redirect_to orders_url  
     end
   end
 

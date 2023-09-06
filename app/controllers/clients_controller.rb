@@ -49,12 +49,14 @@ class ClientsController < ApplicationController
 
   # DELETE /clients/1 or /clients/1.json
   def destroy
-    @client.destroy
-
-    respond_to do |format|
-      format.html { redirect_to clients_url, notice: "Client was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    begin
+      @client.destroy
+      flash[:notice] = 'Client was successfully destroyed.'         
+    rescue ActiveRecord::DeleteRestrictionError => e
+      flash[:alert] = 'Cannot delete the model because it has associated records.'
+    ensure
+      redirect_to clients_url  
+    end   
   end
 
   private
