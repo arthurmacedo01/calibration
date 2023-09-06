@@ -63,6 +63,9 @@ class OrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
+      @order_items = OrderItem.where(order:params[:id]).includes( service: [:section])
+      puts "XXXXXXXXXXXXXXXXXXXXXXXXX"
+      puts @order_items
     end
 
     # Only allow a list of trusted parameters through.

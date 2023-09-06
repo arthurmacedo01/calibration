@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @order %>
+<%= render "order", order: @order %>
 
 <div>
   <%= link_to "Edit this order", edit_order_path(@order) %> |
@@ -8,3 +8,11 @@
 
   <%= button_to "Destroy this order", @order, method: :delete %>
 </div>
+
+  <% @order_items.each do |order_item|%>
+    <p>    
+      <%=order_item.service.description%>
+      <%=order_item.service.section.acronym%>
+      <%=order_item.status%>
+    </p>
+  <%end%>
