@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: %i[ show edit update destroy ]
-  before_action :set_sections, only: %i[ new edit ]
+  before_action :set_sections, only: %i[ new create edit update ]
 
   # GET /services or /services.json
   def index
@@ -74,4 +74,5 @@ class ServicesController < ApplicationController
     def set_sections
       @sections = Section.all
     end
+
 end

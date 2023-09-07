@@ -1,5 +1,9 @@
 class OrderItemsController < ApplicationController
   before_action :set_order_item, only: %i[ show edit update destroy ]
+  before_action :set_orders, only: %i[ new create edit update ]
+  before_action :set_equipments, only: %i[ new create edit update ]
+  before_action :set_services, only: %i[ new create edit update ]
+
 
   # GET /order_items or /order_items.json
   def index
@@ -66,5 +70,17 @@ class OrderItemsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def order_item_params
       params.require(:order_item).permit(:order_id, :equipment_id, :service_id, :status, :obs, :accessories)
+    end
+
+    def set_orders
+      @orders = Order.all
+    end
+
+    def set_equipments
+      @equipments = Equipment.all
+    end
+
+    def set_services
+      @services = Service.all
     end
 end

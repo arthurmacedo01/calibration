@@ -1,6 +1,6 @@
 class EquipmentController < ApplicationController
   before_action :set_equipment, only: %i[ show edit update destroy ]
-  before_action :set_clients, only: %i[ new edit ]
+  before_action :set_clients, only: %i[ new create edit update ]
 
   # GET /equipment or /equipment.json
   def index

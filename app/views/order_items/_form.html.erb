@@ -13,17 +13,17 @@
 
   <div>
     <%= form.label :order_id, style: "display: block" %>
-    <%= form.text_field :order_id %>
+    <%= form.select(:order_id, @orders.map{ |order| [order.doc_type+" "+order.doc_number,order.id]}) %>
   </div>
 
   <div>
     <%= form.label :equipment_id, style: "display: block" %>
-    <%= form.text_field :equipment_id %>
+    <%= form.select(:equipment_id, @equipments.map{ |equipment| [equipment.description+" - "+equipment.serial_number,equipment.id]}) %>
   </div>
 
   <div>
     <%= form.label :service_id, style: "display: block" %>
-    <%= form.text_field :service_id %>
+    <%= form.select(:service_id, @services.map{ |service| [service.description,service.id]}) %>
   </div>
 
   <div>

@@ -16,8 +16,11 @@
     <%= form.text_area :description %>
   </div>
 
-  <%= select_tag(:section_id, options_for_select(@sections.map{ |section| [section.name,section.id]})) %>
-  
+  <div>
+    <%= form.label :section_id, style: "display: block" %>
+    <%= form.select(:section_id, @sections.map{ |section| [section.name,section.id]}) %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>
