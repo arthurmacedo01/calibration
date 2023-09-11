@@ -28,7 +28,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
+    <%= form.select(:status, @status_options) %>
   </div>
 
   <div>

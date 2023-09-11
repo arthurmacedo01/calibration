@@ -12,12 +12,30 @@
 
 </div>
 
-  <% @order_items.each do |order_item|%>
-    <p>    
-      <%=order_item.service.description%>
-      <%=order_item.service.section.acronym%>
-      <%=order_item.status%>
-      <%= link_to "Edit this order item", edit_order_item_path(order_item) %>
-      <%= button_to "Destroy this order item", order_item, method: :delete %>
-    </p>
-  <%end%>
+<table>
+  <thead>
+    <tr>
+      <th>Equipamento</th>
+      <th>S/N</th>
+      <th>Descrição</th>
+      <th>Setor</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order_items.each do |order_item| %>
+      <tr>
+        <td><%= order_item.equipment.description %></td>
+        <td><%= order_item.equipment.serial_number %></td>
+        <td><%= order_item.service.description %></td>
+        <td><%= order_item.service.section.acronym %></td>
+        <td><%= order_item.status %></td>
+        <td>
+          <%= link_to "Edit", edit_order_item_path(order_item) %>
+          <%= button_to "Destroy", order_item, method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
