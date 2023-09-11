@@ -2,7 +2,7 @@ class OrderItemsController < ApplicationController
   before_action :set_order_item, only: %i[ show edit update destroy ]
   before_action :set_order, only: %i[ new ]
   before_action :set_equipments, only: %i[ new create edit update ]
-  before_action :set_status_options, only: %i[ new edit ]
+  before_action :set_status_options, only: %i[ new create edit update ]
   before_action :set_services, only: %i[ new create edit update ]
 
 

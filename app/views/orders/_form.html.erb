@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form-group mb-2">
     <%= form.label :doc_type, style: "display: block" %>
-    <%= form.text_field :doc_type %>
+    <%= form.text_field :doc_type, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group mb-2">
     <%= form.label :doc_number, style: "display: block" %>
-    <%= form.text_field :doc_number %>
+    <%= form.text_field :doc_number, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group mb-2">
     <%= form.label :sigad, style: "display: block" %>
-    <%= form.number_field :sigad %>
+    <%= form.number_field :sigad, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group mb-2">
     <%= form.label :nup, style: "display: block" %>
-    <%= form.text_field :nup %>
+    <%= form.text_field :nup, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group mb-2">
     <%= form.label :date, style: "display: block" %>
-    <%= form.date_field :date %>
+    <%= form.date_field :date, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-group mb-2">
+    <%= form.submit class:"btn btn-primary mb-2" %>
   </div>
 <% end %>

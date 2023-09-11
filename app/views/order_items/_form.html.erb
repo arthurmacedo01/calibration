@@ -11,37 +11,37 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form-group mb-2">
     <%= form.label :order_id, style: "display: block", hidden:true %>
     <%= form.number_field :order_id, hidden:true%>
   </div>
 
-  <div>
+  <div class="form-group mb-2">
     <%= form.label :equipment_id, style: "display: block" %>
-    <%= form.select(:equipment_id, @equipments.map{ |equipment| [equipment.description+" - "+equipment.serial_number,equipment.id]}) %>
+    <%= form.select(:equipment_id, @equipments.map{ |equipment| [equipment.description+" - "+equipment.serial_number,equipment.id]}, {}, class: "form-select") %>
   </div>
 
-  <div>
+  <div class="form-group mb-2">
     <%= form.label :service_id, style: "display: block" %>
-    <%= form.select(:service_id, @services.map{ |service| [service.description,service.id]}) %>
+    <%= form.select(:service_id, @services.map{ |service| [service.description,service.id]}, {}, class: "form-select") %>
   </div>
 
-  <div>
+  <div class="form-group mb-2">
     <%= form.label :status, style: "display: block" %>
-    <%= form.select(:status, @status_options) %>
+    <%= form.select(:status, @status_options, {}, class: "form-select") %>
   </div>
 
-  <div>
+  <div class="form-group mb-2">
     <%= form.label :obs, style: "display: block" %>
-    <%= form.text_area :obs %>
+    <%= form.text_area :obs, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group mb-2">
     <%= form.label :accessories, style: "display: block" %>
-    <%= form.text_area :accessories %>
+    <%= form.text_area :accessories, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-group mb-2">
+    <%= form.submit class:"btn btn-primary mb-2" %>
   </div>
 <% end %>
