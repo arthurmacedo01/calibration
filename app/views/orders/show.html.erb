@@ -7,6 +7,9 @@
   <%= link_to "Back to orders", orders_path %>
 
   <%= button_to "Destroy this order", @order, method: :delete %>
+
+  <%= link_to "New order item", controller: "order_items", action: "new", order_id: @order.id %>
+
 </div>
 
   <% @order_items.each do |order_item|%>
@@ -14,5 +17,7 @@
       <%=order_item.service.description%>
       <%=order_item.service.section.acronym%>
       <%=order_item.status%>
+      <%= link_to "Edit this order item", edit_order_item_path(order_item) %>
+      <%= button_to "Destroy this order item", order_item, method: :delete %>
     </p>
   <%end%>

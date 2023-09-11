@@ -64,8 +64,6 @@ class OrdersController < ApplicationController
     def set_order
       @order = Order.find(params[:id])
       @order_items = OrderItem.where(order:params[:id]).includes( service: [:section])
-      puts "XXXXXXXXXXXXXXXXXXXXXXXXX"
-      puts @order_items
     end
 
     # Only allow a list of trusted parameters through.

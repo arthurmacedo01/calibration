@@ -12,8 +12,8 @@
   <% end %>
 
   <div>
-    <%= form.label :order_id, style: "display: block" %>
-    <%= form.select(:order_id, @orders.map{ |order| [order.doc_type+" "+order.doc_number,order.id]}) %>
+    <%= form.label :order_id, style: "display: block", hidden:true %>
+    <%= form.number_field :order_id, hidden:true%>
   </div>
 
   <div>

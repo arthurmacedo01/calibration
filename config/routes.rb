@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :order_items
+  resources :order_items, only: [:index, :create, :show, :edit, :update, :destroy]
+  get '/order_items/:order_id/new', to: 'order_items#new', as: 'new_order_item_path'
   resources :orders
   resources :equipment
   resources :clients
