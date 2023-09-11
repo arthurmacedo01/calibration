@@ -2,13 +2,28 @@
 
 <h1>Services</h1>
 
-<div id="services">
-  <% @services.each do |service| %>
-    <%= render service %>
-    <p>
-      <%= link_to "Show this service", service %>
-    </p>
-  <% end %>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Section</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @services.each do |service| %>
+      <tr>
+        <td><%= service.description %></td>
+        <td><%= service.section_id %></td>
+        <td>
+          <%= link_to "Show", service %>
+          <%= link_to "Edit", edit_service_path(service) %>
+          <%= button_to "Destroy", service, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 
 <%= link_to "New service", new_service_path %>

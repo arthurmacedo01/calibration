@@ -2,13 +2,29 @@
 
 <h1>Clients</h1>
 
-<div id="clients">
-  <% @clients.each do |client| %>
-    <%= render client %>
-    <p>
-      <%= link_to "Show this client", client %>
-    </p>
-  <% end %>
-</div>
-
 <%= link_to "New client", new_client_path %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Division</th>
+      <th>Subdivision</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.name %></td>
+        <td><%= client.division %></td>
+        <td><%= client.subdivision %></td>
+        <td>
+          <%= link_to "Show", client %>
+          <%= link_to "Edit", edit_client_path(client) %>
+          <%= button_to "Destroy", client, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

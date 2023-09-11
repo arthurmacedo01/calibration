@@ -2,13 +2,29 @@
 
 <h1>Sections</h1>
 
-<div id="sections">
-  <% @sections.each do |section| %>
-    <%= render section %>
-    <p>
-      <%= link_to "Show this section", section %>
-    </p>
-  <% end %>
-</div>
-
 <%= link_to "New section", new_section_path %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Acronym</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sections.each do |section| %>
+      <tr>
+        <td><%= section.name %></td>
+        <td><%= section.acronym %></td>
+        <td>
+          <%= link_to "Show", section %>
+          <%= link_to "Edit", edit_section_path(section) %>
+          <%= button_to "Destroy", section, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

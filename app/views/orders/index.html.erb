@@ -2,13 +2,34 @@
 
 <h1>Orders</h1>
 
-<div id="orders">
-  <% @orders.each do |order| %>
-    <%= render order %>
-    <p>
-      <%= link_to "Show this order", order %>
-    </p>
-  <% end %>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Doc Type</th>
+      <th>Doc Number</th>
+      <th>Sigad</th>
+      <th>Nup</th>
+      <th>Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.doc_type %></td>
+        <td><%= order.doc_number %></td>
+        <td><%= order.sigad %></td>
+        <td><%= order.nup %></td>
+        <td><%= order.date %></td>
+        <td>
+          <%= link_to "Show", order %>
+          <%= link_to "Edit", edit_order_path(order) %>
+          <%= button_to "Destroy", order, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 
 <%= link_to "New order", new_order_path %>

@@ -2,13 +2,39 @@
 
 <h1>Equipment</h1>
 
-<div id="equipment">
-  <% @equipment.each do |equipment| %>
-    <%= render equipment %>
-    <p>
-      <%= link_to "Show this equipment", equipment %>
-    </p>
-  <% end %>
-</div>
-
 <%= link_to "New equipment", new_equipment_path %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Manufacturer</th>
+      <th>Model</th>
+      <th>Serial number</th>
+      <th>Client</th>
+      <th>Division</th>
+      <th>Subdivision</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @equipment.each do |equipment| %>
+      <tr>
+        <td><%= equipment.description %></td>
+        <td><%= equipment.manufacturer %></td>
+        <td><%= equipment.model %></td>
+        <td><%= equipment.serial_number %></td>
+        <td><%= equipment.client.name %></td>
+        <td><%= equipment.client.division %></td>
+        <td><%= equipment.client.subdivision %></td>
+        <td>
+          <%= link_to "Show", equipment %>
+          <%= link_to "Edit", edit_equipment_path(equipment) %>
+          <%= button_to "Destroy", equipment, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
