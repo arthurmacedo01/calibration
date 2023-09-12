@@ -33,7 +33,7 @@
 
   <div class="form-group mb-2">
     <%= form.label :client_id, style: "display: block" %>
-    <%= form.select(:client_id, @clients.map { |client| [client.name, client.id] }, {}, class: "form-select") %>
+    <%= form.select(:client_id, @clients.map { |client| [client.name+' | '+client.division+' | '+client.subdivision, client.id] }, {}, class: "form-select") %>
   </div>
 
 

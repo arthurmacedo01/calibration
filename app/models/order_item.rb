@@ -3,7 +3,7 @@ class OrderItem < ApplicationRecord
   belongs_to :equipment
   belongs_to :service
 
-  STATUS_OPTIONS = ['Análise Crítica', 'Calibração Rejeitada', 'Calibrado']
+  STATUS_OPTIONS = ['Análise Crítica', 'Em Calibração', 'Calibração Rejeitada', 'Calibrado', 'Entregue']
 
   validates :status, inclusion: {in: STATUS_OPTIONS}
 end
