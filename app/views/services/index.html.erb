@@ -3,9 +3,9 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Description</th>
-      <th>Section</th>
-      <th>Actions</th>
+      <th>Descrição</th>
+      <th>Setor</th>
+      <th>Ações</th>
     </tr>
   </thead>
   <tbody>
@@ -14,9 +14,9 @@
         <td><%= service.description %></td>
         <td><%= service.section.acronym %></td>
         <td>
-          <%= link_to "Show", service %>
-          <%= link_to "Edit", edit_service_path(service) %>
-          <%= button_to "Destroy", service, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to "Mostrar", service %>
+          <%= link_to "Editar", edit_service_path(service) %>
+          <%= button_to "Excluir", service, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
