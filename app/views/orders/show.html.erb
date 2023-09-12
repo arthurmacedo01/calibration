@@ -10,6 +10,13 @@
 
 </div>
 
+
+<%= form_with(url:items_loader_load_csv_path) do |form| %>
+  <%= form.number_field :order_id, value: @order.id, hidden: true%>
+  <%= form.file_field :file %>
+  <%= submit_tag "Import CSV" %>
+<% end %>
+
 <table class="table">
   <thead>
     <tr>

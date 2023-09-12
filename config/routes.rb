@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'items_loader/load_csv'
   resources :order_items, only: [:index, :create, :show, :edit, :update, :destroy]
   get '/order_items/:order_id/new', to: 'order_items#new', as: 'new_order_item_path'
   resources :orders
