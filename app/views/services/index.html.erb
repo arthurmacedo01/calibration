@@ -12,7 +12,7 @@
     <% @services.each do |service| %>
       <tr>
         <td><%= service.description %></td>
-        <td><%= service.section_id %></td>
+        <td><%= service.section.acronym %></td>
         <td>
           <%= link_to "Show", service %>
           <%= link_to "Edit", edit_service_path(service) %>
