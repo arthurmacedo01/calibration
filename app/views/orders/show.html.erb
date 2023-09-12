@@ -1,13 +1,10 @@
 <%= render "order", order: @order %>
 
+
 <div>
   <%= link_to "Editar este pedido", edit_order_path(@order) %> |
   <%= link_to "Voltar para pedidos", orders_path %>
-
   <%= button_to "Excluir este pedido", @order, method: :delete %>
-
-  <%= link_to "Novo item do pedido", controller: "order_items", action: "new", order_id: @order.id %>
-
 </div>
 
 
@@ -44,3 +41,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= render "order_items/form", order_item: @new_order_item%>

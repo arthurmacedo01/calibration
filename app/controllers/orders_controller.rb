@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
+  before_action :set_equipments, only: %i[ show ]
+  before_action :set_status_options, only: %i[ show ]
+  before_action :set_services, only: %i[ show ]
 
   # GET /orders or /orders.json
   def index
@@ -64,10 +67,24 @@ class OrdersController < ApplicationController
     def set_order
       @order = Order.find(params[:id])
       @order_items = OrderItem.where(order:params[:id]).includes( service: [:section])
+      @new_order_item = OrderItem.new(order_id: @order.id)
     end
 
     # Only allow a list of trusted parameters through.
     def order_params
       params.require(:order).permit(:doc_type, :doc_number, :sigad, :nup, :date)
+    end
+
+
+    def set_equipments
+      @equipments = Equipment.all
+    end
+
+    def set_services
+      @services = Service.all
+    end
+
+    def set_status_options
+      @status_options = OrderItem::STATUS_OPTIONS
     end
 end
