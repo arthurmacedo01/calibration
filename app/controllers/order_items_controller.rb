@@ -15,7 +15,7 @@ class OrderItemsController < ApplicationController
   def show
   end
 
-  # GET /order_items/new
+  # GET /order_items/1/new
   def new
     @order_item = OrderItem.new
     @order_item.order_id = @order.id
