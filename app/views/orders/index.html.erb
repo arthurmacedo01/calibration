@@ -1,14 +1,16 @@
-<h1>Orders</h1>
+<h1>Pedidos</h1>
+
+<%= link_to "Novo Pedido", new_order_path %>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Doc Type</th>
-      <th>Doc Number</th>
-      <th>Sigad</th>
-      <th>Nup</th>
-      <th>Date</th>
-      <th>Actions</th>
+      <th>Tipo de Documento</th>
+      <th>Número do Documento</th>
+      <th>SIGAD</th>
+      <th>NUP</th>
+      <th>Data</th>
+      <th>Ações</th>
     </tr>
   </thead>
   <tbody>
@@ -20,9 +22,9 @@
         <td><%= order.nup %></td>
         <td><%= order.date %></td>
         <td>
-          <%= link_to "Show", order %>
-          <%= link_to "Edit", edit_order_path(order) %>
-          <%= button_to "Destroy", order, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to "Mostrar", order %>
+          <%= link_to "Editar", edit_order_path(order) %>
+          <%= button_to "Excluir", order, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
@@ -30,4 +32,3 @@
 </table>
 
 
-<%= link_to "New order", new_order_path %>

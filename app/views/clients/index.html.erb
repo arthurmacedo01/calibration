@@ -1,14 +1,14 @@
-<h1>Clients</h1>
+<h1>Clientes</h1>
 
 <%= link_to "New client", new_client_path %>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Division</th>
-      <th>Subdivision</th>
-      <th>Actions</th>
+      <th>Nome</th>
+      <th>Divisão</th>
+      <th>Subdivisão</th>
+      <th>Ações</th>
     </tr>
   </thead>
   <tbody>
@@ -18,9 +18,9 @@
         <td><%= client.division %></td>
         <td><%= client.subdivision %></td>
         <td>
-          <%= link_to "Show", client %>
-          <%= link_to "Edit", edit_client_path(client) %>
-          <%= button_to "Destroy", client, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to "Mostrar", client %>
+          <%= link_to "Editar", edit_client_path(client) %>
+          <%= button_to "Excluir", client, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>

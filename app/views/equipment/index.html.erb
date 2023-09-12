@@ -1,18 +1,18 @@
-<h1>Equipment</h1>
+<h1>Equipmentos</h1>
 
-<%= link_to "New equipment", new_equipment_path %>
+<%= link_to "Novo equipmento", new_equipment_path %>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Description</th>
-      <th>Manufacturer</th>
-      <th>Model</th>
-      <th>Serial number</th>
-      <th>Client</th>
-      <th>Division</th>
-      <th>Subdivision</th>
-      <th>Actions</th>
+      <th>Descrição</th>
+      <th>Fabricante</th>
+      <th>Modelo</th>
+      <th>Número Serial</th>
+      <th>Cliente</th>
+      <th>Divisão</th>
+      <th>Subdivisão</th>
+      <th>Ações</th>
     </tr>
   </thead>
   <tbody>
@@ -26,9 +26,9 @@
         <td><%= equipment.client.division %></td>
         <td><%= equipment.client.subdivision %></td>
         <td>
-          <%= link_to "Show", equipment %>
-          <%= link_to "Edit", edit_equipment_path(equipment) %>
-          <%= button_to "Destroy", equipment, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to "Mostrar", equipment %>
+          <%= link_to "Editar", edit_equipment_path(equipment) %>
+          <%= button_to "Excluir", equipment, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>

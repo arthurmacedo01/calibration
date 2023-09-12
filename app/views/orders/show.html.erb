@@ -1,12 +1,12 @@
 <%= render "order", order: @order %>
 
 <div>
-  <%= link_to "Edit this order", edit_order_path(@order) %> |
-  <%= link_to "Back to orders", orders_path %>
+  <%= link_to "Editar este pedido", edit_order_path(@order) %> |
+  <%= link_to "Voltar para pedidos", orders_path %>
 
-  <%= button_to "Destroy this order", @order, method: :delete %>
+  <%= button_to "Excluir este pedido", @order, method: :delete %>
 
-  <%= link_to "New order item", controller: "order_items", action: "new", order_id: @order.id %>
+  <%= link_to "Novo item do pedido", controller: "order_items", action: "new", order_id: @order.id %>
 
 </div>
 
@@ -18,7 +18,7 @@
       <th>Descrição</th>
       <th>Setor</th>
       <th>Status</th>
-      <th>Actions</th>
+      <th>Ações</th>
     </tr>
   </thead>
   <tbody>
@@ -30,8 +30,8 @@
         <td><%= order_item.service.section.acronym %></td>
         <td><%= order_item.status %></td>
         <td>
-          <%= link_to "Edit", edit_order_item_path(order_item) %>
-          <%= button_to "Destroy", order_item, method: :delete %>
+          <%= link_to "Editar", edit_order_item_path(order_item) %>
+          <%= button_to "Excluir", order_item, method: :delete %>
         </td>
       </tr>
     <% end %>
