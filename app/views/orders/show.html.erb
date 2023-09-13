@@ -5,6 +5,7 @@
   <div class="row">
     <div class="col">
       <%= render "order", order: @order %>
+      <p><strong>Quantidade total de itens: </strong><%=@order_items.count%></p>
       <div class="row">
         <%= link_to "Editar informações", edit_order_path(@order), class: "col"%>
         <%= link_to "Voltar para pedidos", orders_path, class: "col" %>

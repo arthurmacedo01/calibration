@@ -2,7 +2,7 @@ class OrderItemsController < ApplicationController
   before_action :set_order_item, only: %i[ show edit update destroy ]
   before_action :set_order, only: %i[ new ]
   before_action :set_equipments, only: %i[ new create edit update ]
-  before_action :set_status_options, only: %i[ new create edit update ]
+  before_action :set_status_options, only: %i[ index new create edit update ]
   before_action :set_services, only: %i[ new create edit update ]
 
 
@@ -20,6 +20,11 @@ class OrderItemsController < ApplicationController
     # Check for filter parameters
     if params[:section_id].present?
       @order_items = @order_items.joins(service: :section).where(sections: { id: params[:section_id] })
+    end
+
+    # Check for filter parameters
+    if params[:status].present?
+      @order_items = @order_items.where(status: params[:status])
     end
 
   end
