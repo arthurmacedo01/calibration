@@ -25,10 +25,13 @@
         <td><%= equipment.client.name %></td>
         <td><%= equipment.client.division %></td>
         <td><%= equipment.client.subdivision %></td>
-        <td>
-          <%= link_to "Mostrar", equipment %>
-          <%= link_to "Editar", edit_equipment_path(equipment) %>
-          <%= button_to "Excluir", equipment, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <td>          
+          <%= link_to edit_equipment_path(equipment) do %>
+            <i class="fa fa-edit m-1"></i>
+          <%end%>
+          <%= link_to equipment, data: {turbo_method: "delete", turbo_confirm: 'Tem certeza?'} do %>
+            <i class="fa fa-trash-o m-1"></i>
+          <%end%>  
         </td>
       </tr>
     <% end %>

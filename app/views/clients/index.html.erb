@@ -18,9 +18,12 @@
         <td><%= client.division %></td>
         <td><%= client.subdivision %></td>
         <td>
-          <%= link_to "Mostrar", client %>
-          <%= link_to "Editar", edit_client_path(client) %>
-          <%= button_to "Excluir", client, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to edit_client_path(client) do %>
+            <i class="fa fa-edit m-1"></i>
+          <%end%>
+          <%= link_to client, data: {turbo_method: "delete", turbo_confirm: 'Tem certeza?'} do %>
+            <i class="fa fa-trash-o m-1"></i>
+          <%end%>  
         </td>
       </tr>
     <% end %>

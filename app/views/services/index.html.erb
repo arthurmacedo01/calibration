@@ -16,9 +16,12 @@
         <td><%= service.description %></td>
         <td><%= service.section.acronym %></td>
         <td>
-          <%= link_to "Mostrar", service %>
-          <%= link_to "Editar", edit_service_path(service) %>
-          <%= button_to "Excluir", service, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to edit_service_path(service) do %>
+            <i class="fa fa-edit m-1"></i>
+          <%end%>
+          <%= link_to service, data: {turbo_method: "delete", turbo_confirm: 'Tem certeza?'} do %>
+            <i class="fa fa-trash-o m-1"></i>
+          <%end%>  
         </td>
       </tr>
     <% end %>

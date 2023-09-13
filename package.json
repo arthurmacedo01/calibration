@@ -5,6 +5,9 @@
   "author": "Arthur_Macedo <arthurmacedo01@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "^5.3.1"
+    "bootstrap": "^5.3.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.7.1",
+    "jquery-ujs": "^1.2.3"
   }
 }

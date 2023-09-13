@@ -22,9 +22,12 @@
         <td><%= order.nup %></td>
         <td><%= I18n.l order.date %></td>
         <td>
-          <%= link_to "Mostrar", order %>
-          <%= link_to "Editar", edit_order_path(order) %>
-          <%= button_to "Excluir", order, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to order do %>
+            <i class="fa fa-edit m-1"></i>
+          <%end%>
+          <%= link_to order_path(order), data: {turbo_method: "delete", turbo_confirm: 'Tem certeza?' } do %>
+            <i class="fa fa-trash-o m-1"></i>
+          <%end%>           
         </td>
       </tr>
     <% end %>

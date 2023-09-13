@@ -16,9 +16,12 @@
         <td><%= section.name %></td>
         <td><%= section.acronym %></td>
         <td>
-          <%= link_to "Mostrar", section %>
-          <%= link_to "Editar", edit_section_path(section) %>
-          <%= button_to "Excluir", section, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to edit_section_path(section) do %>
+            <i class="fa fa-edit m-1"></i>
+          <%end%>
+          <%= link_to section, data: {turbo_method: "delete", turbo_confirm: 'Tem certeza?'} do %>
+            <i class="fa fa-trash-o m-1"></i>
+          <%end%>  
         </td>
       </tr>
     <% end %>
