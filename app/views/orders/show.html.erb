@@ -1,18 +1,27 @@
-<%= render "order", order: @order %>
 
+<h3>Informações do Pedido</h3>
 
-<div>
-  <%= link_to "Editar este pedido", edit_order_path(@order) %> |
-  <%= link_to "Voltar para pedidos", orders_path %>
-  <%= button_to "Excluir este pedido", @order, method: :delete %>
+<div class="card card-body">
+  <div class="row">
+    <div class="col">
+      <%= render "order", order: @order %>
+      <%= button_to "Excluir este pedido", @order, method: :delete, class: "btn btn-danger" %> 
+      <%= link_to "Editar este pedido", edit_order_path(@order) %> |
+      <%= link_to "Voltar para pedidos", orders_path %> |
+      <%= link_to "Novo item do pedido", controller: "order_items", action: "new", order_id: @order.id %>
+      
+      <%= form_with(url:items_loader_load_csv_path, class: "row container-sm") do |form| %>
+        <%= form.number_field :order_id, value: @order.id, hidden: true%>          
+        <%= form.file_field :file, class: "form-control col"%>
+        <%= submit_tag "Importar CSV", class: "btn btn-secondary col-sm-2" %>
+      <% end %>
+    </div>  
+    <div class="col">
+      <%= render "order_items/form", order_item: @new_order_item%>
+    </div>
+  </div>  
 </div>
 
-
-<%= form_with(url:items_loader_load_csv_path) do |form| %>
-  <%= form.number_field :order_id, value: @order.id, hidden: true%>
-  <%= form.file_field :file %>
-  <%= submit_tag "Import CSV" %>
-<% end %>
 
 <table class="table">
   <thead>
@@ -35,11 +44,10 @@
         <td><%= order_item.status %></td>
         <td>
           <%= link_to "Editar", edit_order_item_path(order_item) %>
-          <%= button_to "Excluir", order_item, method: :delete %>
+          <%= button_to "Excluir", order_item, method: :delete, class: "btn btn-danger" %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= render "order_items/form", order_item: @new_order_item%>

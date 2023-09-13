@@ -30,7 +30,7 @@ class OrderItemsController < ApplicationController
     @order_item = OrderItem.new(order_item_params)
     respond_to do |format|
       if @order_item.save
-        format.html { redirect_to order_url(@order_item.order), notice: "Order item was successfully created." }
+        format.html { redirect_to order_url(@order_item.order) }
         format.json { render :show, status: :created, location: @order_item }
       else
         format.html { render :new, status: :unprocessable_entity }

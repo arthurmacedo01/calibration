@@ -66,7 +66,7 @@ class OrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
-      @order_items = OrderItem.where(order:params[:id]).includes( service: [:section])
+      @order_items = OrderItem.where(order:params[:id]).includes( service: [:section]).reverse()
       @new_order_item = OrderItem.new(order_id: @order.id)
     end
 
