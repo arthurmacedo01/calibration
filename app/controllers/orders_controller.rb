@@ -54,11 +54,11 @@ class OrdersController < ApplicationController
   def destroy
     begin
       @order.destroy
-      flash[:notice] = 'Order was successfully destroyed.'         
-    rescue ActiveRecord::DeleteRestrictionError => e
-      flash[:alert] = 'Cannot delete the model because it has associated records.'
-    ensure
+      flash[:notice] = 'Order was successfully destroyed.'
       redirect_to orders_url  
+    rescue ActiveRecord::DeleteRestrictionError => e
+      flash[:alert] = 'Cannot delete the model because it has associated records.'    
+      redirect_to @order
     end
   end
 

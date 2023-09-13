@@ -14,7 +14,7 @@
       <%= form_with(url:items_loader_load_csv_path, class: "row container-sm my-3") do |form| %>
         <%= form.number_field :order_id, value: @order.id, hidden: true%>          
         <%= form.file_field :file, class: "form-control col"%>
-        <%= submit_tag "Importar CSV", class: "btn btn-secondary col-sm-2" %>
+        <%= submit_tag "Importar CSV", class: "btn btn-secondary col-sm-3" %>
       <% end %>
     </div>  
     <div class="col">
