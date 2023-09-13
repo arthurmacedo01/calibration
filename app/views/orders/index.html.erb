@@ -20,7 +20,7 @@
         <td><%= order.doc_number %></td>
         <td><%= order.sigad %></td>
         <td><%= order.nup %></td>
-        <td><%= order.date %></td>
+        <td><%= I18n.l order.date %></td>
         <td>
           <%= link_to "Mostrar", order %>
           <%= link_to "Editar", edit_order_path(order) %>

@@ -1,12 +1,25 @@
-<h1>Itens do Pedido</h1>
+<h1>Itens de Pedido</h1>
+<%= render 'filter_form', order_items: @order_items %>
 
-<div id="order_items">
-  <% @order_items.each do |order_item| %>
-    <%= render order_item %>
-    <p>
-      <%= link_to "Mostrar este item de pedido", order_item %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "Novo item de pedido", new_order_item_path %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Pedido</th>
+      <th>Equipmento</th>
+      <th>Número Serial</th>
+      <th>Setor</th>      
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order_items.each do |order_item| %>
+      <tr>
+        <td><%= order_item.order.doc_type + " " + order_item.order.doc_number %></td>
+        <td><%= order_item.equipment.description %></td>
+        <td><%= order_item.equipment.serial_number %></td>
+        <td><%= order_item.service.section.acronym %></td>
+        <td><%= order_item.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
