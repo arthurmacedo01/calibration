@@ -44,10 +44,10 @@
         <td><%= order_item.service.section.acronym %></td>
         <td><%= order_item.status %></td>
         <td>
-          <%= link_to edit_order_item_path(order_item) do %>
+          <%= link_to edit_order_item_path(order_item), class: "no-decoration" do %>
             <i class="fa fa-edit m-1"></i>
           <%end%>
-          <%= link_to order_item, data: {turbo_method: "delete" } do %>
+          <%= link_to order_item, data: {turbo_method: "delete" }, class: "no-decoration" do %>
             <i class="fa fa-trash-o m-1"></i>
           <%end%>  
         </td>

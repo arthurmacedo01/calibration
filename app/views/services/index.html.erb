@@ -16,10 +16,10 @@
         <td><%= service.description %></td>
         <td><%= service.section.acronym %></td>
         <td>
-          <%= link_to edit_service_path(service) do %>
+          <%= link_to edit_service_path(service), class: "no-decoration" do %>
             <i class="fa fa-edit m-1"></i>
           <%end%>
-          <%= link_to service, data: {turbo_method: "delete", turbo_confirm: 'Tem certeza?'} do %>
+          <%= link_to service, data: {turbo_method: "delete", turbo_confirm: 'Tem certeza?'}, class: "no-decoration" do %>
             <i class="fa fa-trash-o m-1"></i>
           <%end%>  
         </td>

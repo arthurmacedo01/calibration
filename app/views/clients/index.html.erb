@@ -18,10 +18,10 @@
         <td><%= client.division %></td>
         <td><%= client.subdivision %></td>
         <td>
-          <%= link_to edit_client_path(client) do %>
+          <%= link_to edit_client_path(client), class: "no-decoration" do %>
             <i class="fa fa-edit m-1"></i>
           <%end%>
-          <%= link_to client, data: {turbo_method: "delete", turbo_confirm: 'Tem certeza?'} do %>
+          <%= link_to client, data: {turbo_method: "delete", turbo_confirm: 'Tem certeza?'}, class: "no-decoration" do %>
             <i class="fa fa-trash-o m-1"></i>
           <%end%>  
         </td>

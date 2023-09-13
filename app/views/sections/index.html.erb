@@ -16,10 +16,10 @@
         <td><%= section.name %></td>
         <td><%= section.acronym %></td>
         <td>
-          <%= link_to edit_section_path(section) do %>
+          <%= link_to edit_section_path(section), class: "no-decoration" do %>
             <i class="fa fa-edit m-1"></i>
           <%end%>
-          <%= link_to section, data: {turbo_method: "delete", turbo_confirm: 'Tem certeza?'} do %>
+          <%= link_to section, data: {turbo_method: "delete", turbo_confirm: 'Tem certeza?'}, class: "no-decoration" do %>
             <i class="fa fa-trash-o m-1"></i>
           <%end%>  
         </td>
