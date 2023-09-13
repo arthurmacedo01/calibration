@@ -1,0 +1,38 @@
+pt-BR:
+  activerecord:
+    models:
+      order: "Pedido"
+      order_item: "Item de Pedido"
+      equipment: "Equipamento"
+      client: "Cliente"   
+      service: "Serviço"
+      section: "Setor"
+    attributes:
+      order:
+        doc_type: "Tipo de Documento"
+        doc_number: "Número do Documento"
+        sigad: "SIGAD"
+        nup: "NUP"
+        date: "Data"
+      equipment:
+        description: "Descrição"
+        manufacturer: "Fabricante"
+        model: "Modelo"
+        serial_number: "Número Serial"
+        client_id: "Cliente"
+      client:
+        name: "Nome"
+        division: "Divisão"
+        subdivision: "Subdivisão"
+      service:
+        description: "Descrição"
+        section_id: "Setor"
+      section:
+        name: "Nome"
+        acronym: "Sigla"      
+      order_item:
+        equipment_id: "Equipamento"
+        service_id: "Serviço"
+        status: "Status"
+        obs: "Observação"        
+        accessories: "Acessórios"
