@@ -4,5 +4,5 @@
   <%= link_to "Editar este cliente", edit_client_path(@client) %> |
   <%= link_to "Voltar para clientes", clients_path %>
 
-  <%= button_to "Excluir este cliente", @client, method: :delete %>
+  <%= button_to "Excluir este cliente", @client, method: :delete, class: "btn btn-danger" %>
 </div>
