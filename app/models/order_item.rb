@@ -6,4 +6,6 @@ class OrderItem < ApplicationRecord
   STATUS_OPTIONS = ['Análise Crítica', 'Em Calibração', 'Calibração Rejeitada', 'Calibrado', 'Entregue']
 
   validates :status, inclusion: {in: STATUS_OPTIONS}
+  validates :date, presence: true
+  
 end

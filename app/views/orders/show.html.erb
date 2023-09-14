@@ -32,6 +32,7 @@
       <th>S/N</th>
       <th>Descrição</th>
       <th>Setor</th>
+      <th>Data</th>
       <th>Status</th>
       <th>Ações</th>
     </tr>
@@ -43,6 +44,7 @@
         <td><%= order_item.equipment.serial_number %></td>
         <td><%= order_item.service.description %></td>
         <td><%= order_item.service.section.acronym %></td>
+        <td><%= I18n.l order_item.date %></td>
         <td><%= order_item.status %></td>
         <td>
           <%= link_to edit_order_item_path(order_item), class: "no-decoration" do %>
