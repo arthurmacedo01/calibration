@@ -5,3 +5,4 @@
 
 //= link jquery/dist/jquery.js
 //= link jquery-ujs/src/rails.js
+//= link bootstrap/dist/js/bootstrap.js
