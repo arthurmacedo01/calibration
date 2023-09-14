@@ -27,8 +27,8 @@ class CsvOrderItemsLoader
         if row["cliente_subdivisao"].nil?
           raise StandardError, 'Falta a coluna cliente_subdivisao no arquivo CSV'
         end
-        if row["servico_descricao"].nil?
-          raise StandardError, 'Falta a coluna servico_descricao no arquivo CSV'
+        if row["servico_codigo"].nil?
+          raise StandardError, 'Falta a coluna servico_codigo no arquivo CSV'
         end
         if row["item_observacao"].nil?
           raise StandardError, 'Falta a coluna item_observacao no arquivo CSV'
@@ -40,7 +40,7 @@ class CsvOrderItemsLoader
           raise StandardError, 'Falta a coluna data_item no arquivo CSV'
         end
 
-        service = Service.find_by(description: row["servico_descricao"])
+        service = Service.find_by(code: row["servico_codigo"])
         if service.nil?        
           raise StandardError, 'Há uma referência de um serviço não cadastrado no arquivo CSV'    
         end

@@ -30,6 +30,7 @@ pt-BR:
       service:
         description: "Descrição"
         section_id: "Setor"
+        code: "Código"
       section:
         name: "Nome"
         acronym: "Sigla"      
