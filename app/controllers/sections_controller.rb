@@ -25,7 +25,7 @@ class SectionsController < ApplicationController
 
     respond_to do |format|
       if @section.save
-        format.html { redirect_to section_url(@section), notice: "Section was successfully created." }
+        format.html { redirect_to section_url(@section), notice: "Setor criado com sucesso." }
         format.json { render :show, status: :created, location: @section }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class SectionsController < ApplicationController
   def update
     respond_to do |format|
       if @section.update(section_params)
-        format.html { redirect_to section_url(@section), notice: "Section was successfully updated." }
+        format.html { redirect_to section_url(@section), notice: "Setor atualizado com sucesso." }
         format.json { render :show, status: :ok, location: @section }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,9 +51,9 @@ class SectionsController < ApplicationController
   def destroy
     begin
       @section.destroy
-      flash[:notice] = 'Section was successfully destroyed.'         
+      flash[:notice] = 'Setor excluído com sucesso.'         
     rescue ActiveRecord::DeleteRestrictionError => e
-      flash[:alert] = 'Cannot delete the model because it has associated records.'
+      flash[:alert] = 'Não é possível excluir pois há registros associados.'
     ensure
       redirect_to sections_url  
     end 

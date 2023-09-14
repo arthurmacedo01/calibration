@@ -26,7 +26,7 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to service_url(@service), notice: "Service was successfully created." }
+        format.html { redirect_to service_url(@service), notice: "Serviço criado com sucesso." }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class ServicesController < ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to service_url(@service), notice: "Service was successfully updated." }
+        format.html { redirect_to service_url(@service), notice: "Serviço atualizado com sucesso." }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,9 +52,9 @@ class ServicesController < ApplicationController
   def destroy
     begin
       @service.destroy
-      flash[:notice] = 'Service was successfully destroyed.'         
+      flash[:notice] = 'Serviço excluído com sucesso.'         
     rescue ActiveRecord::DeleteRestrictionError => e
-      flash[:alert] = 'Cannot delete the model because it has associated records.'
+      flash[:alert] = 'Não é possível excluir pois há registros associados.'
     ensure
       redirect_to services_url  
     end 

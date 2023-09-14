@@ -30,7 +30,7 @@ class SectionsTest < ApplicationSystemTestCase
     fill_in "Name", with: @section.name
     click_on "Update Section"
 
-    assert_text "Section was successfully updated"
+    assert_text "Section foi atualizado com sucesso"
     click_on "Back"
   end
 
@@ -38,6 +38,6 @@ class SectionsTest < ApplicationSystemTestCase
     visit section_url(@section)
     click_on "Destroy this section", match: :first
 
-    assert_text "Section was successfully destroyed"
+    assert_text "Section foi excluído com sucesso"
   end
 end

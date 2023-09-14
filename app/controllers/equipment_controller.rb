@@ -26,7 +26,7 @@ class EquipmentController < ApplicationController
 
     respond_to do |format|
       if @equipment.save
-        format.html { redirect_to equipment_url(@equipment), notice: "Equipment was successfully created." }
+        format.html { redirect_to equipment_url(@equipment), notice: "Equipamento criado com sucesso." }
         format.json { render :show, status: :created, location: @equipment }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class EquipmentController < ApplicationController
   def update
     respond_to do |format|
       if @equipment.update(equipment_params)
-        format.html { redirect_to equipment_url(@equipment), notice: "Equipment was successfully updated." }
+        format.html { redirect_to equipment_url(@equipment), notice: "Equipamento atualizado com sucesso." }
         format.json { render :show, status: :ok, location: @equipment }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,9 +52,9 @@ class EquipmentController < ApplicationController
   def destroy
     begin
       @equipment.destroy
-      flash[:notice] = 'Equipment was successfully destroyed.'         
+      flash[:notice] = 'Equipamento excluído com sucesso.'         
     rescue ActiveRecord::DeleteRestrictionError => e
-      flash[:alert] = 'Cannot delete the model because it has associated records.'
+      flash[:alert] = 'Não é possível excluir pois há registros associados.'
     ensure
       redirect_to equipment_index_url  
     end 

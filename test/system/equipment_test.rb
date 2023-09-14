@@ -36,7 +36,7 @@ class EquipmentTest < ApplicationSystemTestCase
     fill_in "Serial number", with: @equipment.serial_number
     click_on "Update Equipment"
 
-    assert_text "Equipment was successfully updated"
+    assert_text "Equipamento atualizado com sucesso"
     click_on "Back"
   end
 
@@ -44,6 +44,6 @@ class EquipmentTest < ApplicationSystemTestCase
     visit equipment_url(@equipment)
     click_on "Destroy this equipment", match: :first
 
-    assert_text "Equipment was successfully destroyed"
+    assert_text "Equipamento excluído com sucesso"
   end
 end

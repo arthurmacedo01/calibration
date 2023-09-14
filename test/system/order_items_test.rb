@@ -38,7 +38,7 @@ class OrderItemsTest < ApplicationSystemTestCase
     fill_in "Status", with: @order_item.status
     click_on "Update Order item"
 
-    assert_text "Order item was successfully updated"
+    assert_text "Order item foi atualizado com sucesso"
     click_on "Back"
   end
 
@@ -46,6 +46,6 @@ class OrderItemsTest < ApplicationSystemTestCase
     visit order_item_url(@order_item)
     click_on "Destroy this order item", match: :first
 
-    assert_text "Order item was successfully destroyed"
+    assert_text "Order item foi excluído com sucesso"
   end
 end

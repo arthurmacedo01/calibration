@@ -36,7 +36,7 @@ class OrdersTest < ApplicationSystemTestCase
     fill_in "Sigad", with: @order.sigad
     click_on "Update Order"
 
-    assert_text "Order was successfully updated"
+    assert_text "Order foi atualizado com sucesso"
     click_on "Back"
   end
 
@@ -44,6 +44,6 @@ class OrdersTest < ApplicationSystemTestCase
     visit order_url(@order)
     click_on "Destroy this order", match: :first
 
-    assert_text "Order was successfully destroyed"
+    assert_text "Order foi excluído com sucesso"
   end
 end

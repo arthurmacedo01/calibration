@@ -61,7 +61,7 @@ class OrderItemsController < ApplicationController
   def update
     respond_to do |format|
       if @order_item.update(order_item_params)
-        format.html { redirect_to order_url(@order_item.order), notice: "Order item was successfully updated." }
+        format.html { redirect_to order_url(@order_item.order), notice: "Item de Pedido atualizado com sucesso." }
         format.json { render :show, status: :ok, location: @order_item }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -75,7 +75,7 @@ class OrderItemsController < ApplicationController
     @order_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to order_url(@order_item.order), notice: "Order item was successfully destroyed." }
+      format.html { redirect_to order_url(@order_item.order), notice: "Item de Pedido excluído com sucesso." }
       format.json { head :no_content }
     end
   end

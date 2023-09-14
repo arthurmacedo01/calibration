@@ -30,7 +30,7 @@ class ServicesTest < ApplicationSystemTestCase
     fill_in "Section", with: @service.section_id
     click_on "Update Service"
 
-    assert_text "Service was successfully updated"
+    assert_text "Service foi atualizado com sucesso"
     click_on "Back"
   end
 
@@ -38,6 +38,6 @@ class ServicesTest < ApplicationSystemTestCase
     visit service_url(@service)
     click_on "Destroy this service", match: :first
 
-    assert_text "Service was successfully destroyed"
+    assert_text "Service foi excluído com sucesso"
   end
 end

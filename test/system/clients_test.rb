@@ -32,7 +32,7 @@ class ClientsTest < ApplicationSystemTestCase
     fill_in "Subdivision", with: @client.subdivision
     click_on "Update Client"
 
-    assert_text "Client was successfully updated"
+    assert_text "Client foi atualizado com sucesso"
     click_on "Back"
   end
 
@@ -40,6 +40,6 @@ class ClientsTest < ApplicationSystemTestCase
     visit client_url(@client)
     click_on "Destroy this client", match: :first
 
-    assert_text "Client was successfully destroyed"
+    assert_text "Client foi excluído com sucesso"
   end
 end
