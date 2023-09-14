@@ -36,6 +36,9 @@ class CsvOrderItemsLoader
         if row["item_acessorios"].nil?
           raise StandardError, 'Falta a coluna item_acessorios no arquivo CSV'
         end
+        if row["data_item"].nil?
+          raise StandardError, 'Falta a coluna data_item no arquivo CSV'
+        end
 
         service = Service.find_by(description: row["servico_descricao"])
         if service.nil?        
@@ -62,7 +65,8 @@ class CsvOrderItemsLoader
           service_id: service.id,
           status: "Análise Crítica",
           obs: row["item_observacao"],
-          accessories: row["item_acessorios"]
+          accessories: row["item_acessorios"],
+          date: Date.strptime(row["data_item"], '%d/%m/%Y')
         )
       orderItem.save!
     rescue StandardError=>e
