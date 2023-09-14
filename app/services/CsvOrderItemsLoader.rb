@@ -59,6 +59,7 @@ class CsvOrderItemsLoader
           client_id: client.id,
         ).find_or_create_by(serial_number: row["numero_serial"])
 
+        
         orderItem = OrderItem.new(
           order_id: order_id,
           equipment_id: equipment.id,
@@ -66,16 +67,28 @@ class CsvOrderItemsLoader
           status: "Análise Crítica",
           obs: row["item_observacao"],
           accessories: row["item_acessorios"],
-          date: Date.strptime(row["data_item"], '%d/%m/%Y')
+          date: getDate(row["data_item"])
         )
-      orderItem.save!
+        orderItem.save!
+      end
     rescue StandardError=>e
       raise e  # Reraise the exception for further handling or logging
     rescue
       raise "Problemas com arquivo CSV."    
     end
-
-    end
   end
 
+  private
+
+  def self.getDate(original_date)
+    date = Date.strptime(original_date, '%d/%m/%Y')
+    if date.year <100
+      if date.year <= (Date.today.year + 30) % 100
+        date = Date.new(date.year + (Date.today.year/ 100) *100,date.month,date.day)
+      else
+        date = Date.new(date.year + (Date.today.year/ 100 - 1) *100,date.month,date.day)
+      end
+    end
+    return date
+  end
 end
