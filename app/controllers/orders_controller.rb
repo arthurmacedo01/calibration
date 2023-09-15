@@ -3,7 +3,8 @@ class OrdersController < ApplicationController
   before_action :set_equipments, only: %i[ show ]
   before_action :set_status_options, only: %i[ show ]
   before_action :set_services, only: %i[ show ]
-
+  before_action :authenticate_user!
+  
   # GET /orders or /orders.json
   def index
     @orders = Order.all

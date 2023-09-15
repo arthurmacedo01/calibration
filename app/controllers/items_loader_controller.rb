@@ -1,4 +1,5 @@
 class ItemsLoaderController < ApplicationController
+  before_action :authenticate_user!
 
   def load_csv
     if params[:file].present?

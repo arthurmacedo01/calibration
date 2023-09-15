@@ -4,7 +4,7 @@ class OrderItemsController < ApplicationController
   before_action :set_equipments, only: %i[ new create edit update ]
   before_action :set_status_options, only: %i[ index new create edit update ]
   before_action :set_services, only: %i[ new create edit update ]
-
+  before_action :authenticate_user!, only: %i[ new create edit show update destroy]
 
   # GET /order_items or /order_items.json
   def index
