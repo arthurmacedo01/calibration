@@ -40,7 +40,7 @@
     <%= form.label :accessories, style: "display: block" %>
     <div class="d-flex p-2 flex-wrap">
       <% @accessories_options.each do |option| %>
-        <a href="#" class="option-link px-1" data-option="<%= option %>"><%= option %></a>
+        <a href="#" class="option-link px-1 small" data-option="<%= option %>"><%= option %></a>
       <% end %>        
     </div>
     <%= form.text_area :accessories, class: "form-control" %>
