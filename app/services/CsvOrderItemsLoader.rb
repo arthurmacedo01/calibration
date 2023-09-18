@@ -27,6 +27,9 @@ class CsvOrderItemsLoader
         if row["solicitante_subdivisao"].nil?
           raise StandardError, 'Falta a coluna solicitante_subdivisao no arquivo CSV'
         end
+        if row["solicitante_fone"].nil?
+          raise StandardError, 'Falta a coluna solicitante_fone no arquivo CSV'
+        end
         if row["servico_codigo"].nil?
           raise StandardError, 'Falta a coluna servico_codigo no arquivo CSV'
         end
@@ -48,6 +51,7 @@ class CsvOrderItemsLoader
         client = Client.create_with(
           division: row["solicitante_divisao"],
           subdivision: row["solicitante_subdivisao"],
+          phone: row["solicitante_fone"],
         ).find_or_create_by(name: row["solicitante_nome"])
 
         puts client.name

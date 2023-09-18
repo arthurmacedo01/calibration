@@ -6,9 +6,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Tipo de Documento</th>
-      <th>Número do Documento</th>
-      <th>SIGAD</th>
+      <th>Documento</th>
       <th>Solicitante</th>
       <th>Data</th>
       <th>Ações</th>
@@ -17,9 +15,7 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.doc_type %></td>
-        <td><%= order.doc_number %></td>
-        <td><%= order.sigad %></td>
+        <td><%= order.doc_type%> <%= order.doc_number %></td>
         <td><%= order.order_items.first && order.order_items.first.equipment.client.name  %></td>
         <td><%= I18n.l order.date %></td>
         <td>
