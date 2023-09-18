@@ -1,0 +1,26 @@
+<h1>Itens de Pedido</h1>
+<%= render 'filter_form', order_items: @order_items %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Pedido</th>
+      <th>Equipmento</th>
+      <th>Número Serial</th>
+      <th>Setor</th>      
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order_items.each do |order_item| %>
+      <tr>
+        <td><%= order_item.order.doc_type + " " + order_item.order.doc_number%></td>
+        <td><%= order_item.equipment.description %></td>
+        <td><%= order_item.equipment.serial_number %></td>
+        <td><%= order_item.service.section.acronym%></td>
+        <td><%= order_item.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  <p>Quantidade de itens: <%=@order_items.count%></p>

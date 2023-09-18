@@ -2,31 +2,12 @@ class OrderItemsController < ApplicationController
   before_action :set_order_item, only: %i[ show edit update destroy ]
   before_action :set_order, only: %i[ new ]
   before_action :set_equipments, only: %i[ new create edit update ]
-  before_action :set_options, only: %i[ index new create edit update ]
+  before_action :set_options, only: %i[ new create edit update ]
   before_action :set_services, only: %i[ new create edit update ]
   before_action :authenticate_user!, only: %i[ new create edit show update destroy]
 
   # GET /order_items or /order_items.json
   def index
-    @order_items = OrderItem.all
-    @orders = Order.all
-    @sections = Section.all
-
-    # Check for filter parameters
-    if params[:order_id].present?
-      @order_items = @order_items.where(order_id: params[:order_id])
-    end
-
-    # Check for filter parameters
-    if params[:section_id].present?
-      @order_items = @order_items.joins(service: :section).where(sections: { id: params[:section_id] })
-    end
-
-    # Check for filter parameters
-    if params[:status].present?
-      @order_items = @order_items.where(status: params[:status])
-    end
-
   end
 
   # GET /order_items/1 or /order_items/1.json

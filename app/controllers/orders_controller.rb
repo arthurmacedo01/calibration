@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   
   # GET /orders or /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.includes(order_items: {equipment: :client}).all
   end
 
   # GET /orders/1 or /orders/1.json
@@ -67,7 +67,7 @@ class OrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
-      @order_items = OrderItem.where(order:params[:id]).includes( service: [:section]).reverse()
+      @order_items = OrderItem.where(order:params[:id]).includes({service: :section}, :equipment).reverse()
       @new_order_item = OrderItem.new(order_id: @order.id)
     end
 

@@ -5,7 +5,7 @@ class EquipmentController < ApplicationController
 
   # GET /equipment or /equipment.json
   def index
-    @equipment = Equipment.all
+    @equipment = Equipment.includes(:client).all
   end
 
   # GET /equipment/1 or /equipment/1.json
