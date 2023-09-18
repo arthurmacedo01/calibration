@@ -1,8 +1,8 @@
 <%= render @client %>
 
 <div>
-  <%= link_to "Editar este cliente", edit_client_path(@client) %> |
-  <%= link_to "Voltar para clientes", clients_path %>
+  <%= link_to "Editar este solicitante", edit_client_path(@client) %> |
+  <%= link_to "Voltar para solicitantes", clients_path %>
 
-  <%= button_to "Excluir este cliente", @client, method: :delete, class: "btn btn-danger" %>
+  <%= button_to "Excluir este solicitante", @client, method: :delete, class: "btn btn-danger" %>
 </div>

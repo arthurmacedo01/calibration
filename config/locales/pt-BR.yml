@@ -7,7 +7,7 @@ pt-BR:
       order: "Pedido"
       order_item: "Item de Pedido"
       equipment: "Equipamento"
-      client: "Cliente"   
+      client: "Solicitante"   
       service: "Serviço"
       section: "Setor"
     attributes:
@@ -22,7 +22,7 @@ pt-BR:
         manufacturer: "Fabricante"
         model: "Modelo"
         serial_number: "Número Serial"
-        client_id: "Cliente"
+        client_id: "Solicitante"
       client:
         name: "Nome"
         division: "Divisão"

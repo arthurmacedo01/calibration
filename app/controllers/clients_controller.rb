@@ -26,7 +26,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
-        format.html { redirect_to client_url(@client), notice: "Cliente criado com sucesso." }
+        format.html { redirect_to client_url(@client), notice: "Solicitante criado com sucesso." }
         format.json { render :show, status: :created, location: @client }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class ClientsController < ApplicationController
   def update
     respond_to do |format|
       if @client.update(client_params)
-        format.html { redirect_to client_url(@client), notice: "Cliente atualizado com sucesso." }
+        format.html { redirect_to client_url(@client), notice: "Solicitante atualizado com sucesso." }
         format.json { render :show, status: :ok, location: @client }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class ClientsController < ApplicationController
   def destroy
     begin
       @client.destroy
-      flash[:notice] = 'Cliente excluído com sucesso.'         
+      flash[:notice] = 'Solicitante excluído com sucesso.'         
     rescue ActiveRecord::DeleteRestrictionError => e
       flash[:alert] = 'Não é possível excluir pois há registros associados.'
     ensure
