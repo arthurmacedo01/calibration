@@ -1,4 +1,7 @@
-<%= form_with(model: order_item, class:"container-sm card card-body") do |form| %>
+<%= javascript_import_module_tag 'order_item' %>
+
+
+<%= form_with(model: order_item, class:"container-sm card card-body", id: "order_item_form") do |form| %>
   <% if order_item.errors.any? %>
     <div style="color: red">
       <ul>
@@ -29,16 +32,18 @@
       <%= form.select(:status, @status_options, {}, class: "form-select") %>
     </div>
   </div>
-  <div class="row">
-    <div class="col form-group mb-2">
-      <%= form.label :obs, style: "display: block" %>
-      <%= form.text_area :obs, class: "form-control" %>
+  <div class="col form-group mb-2">
+    <%= form.label :obs, style: "display: block" %>
+    <%= form.text_area :obs, class: "form-control" %>
+  </div>
+  <div class="col form-group mb-2">
+    <%= form.label :accessories, style: "display: block" %>
+    <div class="d-flex p-2 flex-wrap">
+      <% @accessories_options.each do |option| %>
+        <a href="#" class="option-link px-1" data-option="<%= option %>"><%= option %></a>
+      <% end %>        
     </div>
-
-    <div class="col form-group mb-2">
-      <%= form.label :accessories, style: "display: block" %>
-      <%= form.text_area :accessories, class: "form-control" %>
-    </div>
+    <%= form.text_area :accessories, class: "form-control" %>
   </div>
 
   <div class="row">

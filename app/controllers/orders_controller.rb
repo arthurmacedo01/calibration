@@ -88,5 +88,6 @@ class OrdersController < ApplicationController
     def set_options
       @status_options = OrderItem::STATUS_OPTIONS
       @generated_document_options = OrderItem::DOCUMENT_TYPE_OPTIONS
+      @accessories_options = OrderItem::ACCESSORIES_OPTIONS
     end
 end
