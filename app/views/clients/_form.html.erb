@@ -25,6 +25,11 @@
   </div>
 
   <div class="form-group mb-2">
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.text_field :phone, class: "form-control" %>
+  </div>
+
+  <div class="form-group mb-2">
     <%= form.submit class:"btn btn-primary mb-2" %>
   </div>
 <% end %>

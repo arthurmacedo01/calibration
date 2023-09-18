@@ -27,6 +27,7 @@ pt-BR:
         name: "Nome"
         division: "Divisão"
         subdivision: "Subdivisão"
+        phone: "Fone"
       service:
         description: "Descrição"
         section_id: "Setor"
