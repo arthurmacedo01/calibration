@@ -9,7 +9,7 @@
       <th>Tipo de Documento</th>
       <th>Número do Documento</th>
       <th>SIGAD</th>
-      <th>NUP</th>
+      <th>Solicitante</th>
       <th>Data</th>
       <th>Ações</th>
     </tr>
@@ -20,7 +20,7 @@
         <td><%= order.doc_type %></td>
         <td><%= order.doc_number %></td>
         <td><%= order.sigad %></td>
-        <td><%= order.nup %></td>
+        <td><%= order.order_items.first && order.order_items.first.equipment.client.name  %></td>
         <td><%= I18n.l order.date %></td>
         <td>
           <%= link_to order, class: "no-decoration" do %>
