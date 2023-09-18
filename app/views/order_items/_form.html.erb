@@ -45,9 +45,17 @@
     <div class="col form-group mb-2">
       <%= form.label :date, style: "display: block" %>
       <%= form.date_field :date, class: "form-control", required: true%>
+    </div>    
+    <div class="col form-group mb-2">
+      <%= form.label :generated_document, style: "display: block" %>
+      <%= form.select(:generated_document, [nil] + @generated_document_options, {}, class: "form-select") %>
     </div>
-    <div class="col form-group my-auto">
-      <%= form.submit class:"btn btn-primary mb-2" %>
+    <div class="col form-group mb-2">
+      <%= form.label :generated_document_date, style: "display: block" %>
+      <%= form.date_field :generated_document_date, class: "form-control"%>
     </div>
+  </div>
+  <div class="col form-group my-auto">
+    <%= form.submit class:"btn btn-primary mb-2" %>
   </div>
 <% end %>

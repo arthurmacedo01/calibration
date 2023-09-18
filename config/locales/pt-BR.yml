@@ -41,4 +41,7 @@ pt-BR:
         status: "Status"
         obs: "Observação"        
         accessories: "Acessórios"
-        date: "Data"
+        date: "Data de Entrada"
+        generated_document: "Documento Gerado"
+        generated_document_date: "Data do Documento"
+        

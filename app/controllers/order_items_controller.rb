@@ -2,7 +2,7 @@ class OrderItemsController < ApplicationController
   before_action :set_order_item, only: %i[ show edit update destroy ]
   before_action :set_order, only: %i[ new ]
   before_action :set_equipments, only: %i[ new create edit update ]
-  before_action :set_status_options, only: %i[ index new create edit update ]
+  before_action :set_options, only: %i[ index new create edit update ]
   before_action :set_services, only: %i[ new create edit update ]
   before_action :authenticate_user!, only: %i[ new create edit show update destroy]
 
@@ -88,7 +88,7 @@ class OrderItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_item_params
-      params.require(:order_item).permit(:order_id, :equipment_id, :service_id, :status, :obs, :accessories, :date)
+      params.require(:order_item).permit(:order_id, :equipment_id, :service_id, :status, :obs, :accessories, :date, :generated_document, :generated_document_date)
     end
 
     def set_order
@@ -103,7 +103,8 @@ class OrderItemsController < ApplicationController
       @services = Service.all
     end
 
-    def set_status_options
+    def set_options
       @status_options = OrderItem::STATUS_OPTIONS
+      @generated_document_options = OrderItem::DOCUMENT_TYPE_OPTIONS
     end
 end

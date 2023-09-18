@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
   before_action :set_equipments, only: %i[ show ]
-  before_action :set_status_options, only: %i[ show ]
+  before_action :set_options, only: %i[ show ]
   before_action :set_services, only: %i[ show ]
   before_action :authenticate_user!
   
@@ -85,7 +85,8 @@ class OrdersController < ApplicationController
       @services = Service.all
     end
 
-    def set_status_options
+    def set_options
       @status_options = OrderItem::STATUS_OPTIONS
+      @generated_document_options = OrderItem::DOCUMENT_TYPE_OPTIONS
     end
 end
