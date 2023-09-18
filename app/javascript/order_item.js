@@ -1,4 +1,4 @@
-$(document).ready(function ($) {
+$(function ($) {
   $(".option-link").click(function (e) {
     e.preventDefault(); // Prevent the link from navigating
 
