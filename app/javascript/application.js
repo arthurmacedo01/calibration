@@ -4,5 +4,5 @@ import "controllers";
 
 import "jquery"; // this import first
 import "jquery-ujs";
-import "bootstrap";
 import "@popperjs/core";
+import "bootstrap";
