@@ -5,7 +5,7 @@ class ServicesController < ApplicationController
   
   # GET /services or /services.json
   def index
-    @services = Service.all
+    @services = Service.includes(:section).all
   end
 
   # GET /services/1 or /services/1.json
