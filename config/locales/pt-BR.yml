@@ -42,6 +42,7 @@ pt-BR:
         obs: "Observação"        
         accessories: "Acessórios"
         date: "Data de Entrada"
+        delivery_date: "Entrega do Equipamento"
         generated_document: "Documento Gerado"
         generated_document_date: "Data do Documento"
         
