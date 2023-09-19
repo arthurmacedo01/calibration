@@ -1,6 +1,6 @@
-<div id="<%= dom_id image %>" class="text-center">
+<div id="<%= dom_id image %>">
   <h1><%= image.name %></h1>    
-  <%= image_tag image.image %>
+  <iframe src="<%= rails_blob_url(image.image) %>" width="100%" height="800" class="mx-auto d-block"></iframe>
   <div>
     <%= link_to edit_image_path(image), class: "no-decoration" do %>
       <i class="fa fa-edit m-1"></i>
