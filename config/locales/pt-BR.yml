@@ -10,6 +10,7 @@ pt-BR:
       client: "Solicitante"   
       service: "Serviço"
       section: "Setor"
+      image: "Imagem"
     attributes:
       order:
         doc_type: "Tipo de Documento"
@@ -45,4 +46,7 @@ pt-BR:
         delivery_date: "Entrega do Equipamento"
         generated_document: "Documento Gerado"
         generated_document_date: "Data do Documento"
+      image:
+        name: "Nome"
+        image: "Imagem"
         

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :images
   devise_for :admins
   devise_for :users
   post 'items_loader/load_csv'

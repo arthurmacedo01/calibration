@@ -1,0 +1,8 @@
+<%= render @image %>
+
+<div>
+  <%= link_to "Editar esta imagem", edit_image_path(@image) %> |
+  <%= link_to "Voltar para imagens", images_path %>
+
+  <%= button_to "Excluir esta imagem", @image, method: :delete, class: "btn btn-danger"  %>
+</div>

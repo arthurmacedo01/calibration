@@ -1,0 +1,12 @@
+<div id="<%= dom_id image %>" class="text-center">
+  <h1><%= image.name %></h1>    
+  <%= image_tag image.image %>
+  <div>
+    <%= link_to edit_image_path(image), class: "no-decoration" do %>
+      <i class="fa fa-edit m-1"></i>
+    <%end%>
+    <%= link_to image_path(image), data: {turbo_method: "delete", turbo_confirm: 'Tem certeza?' }, class: "no-decoration" do %>
+      <i class="fa fa-trash-o m-1"></i>
+    <%end%>  
+  </div>
+</div>
