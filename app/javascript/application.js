@@ -6,3 +6,4 @@ import "jquery"; // this import first
 import "jquery-ujs";
 import "@popperjs/core";
 import "bootstrap";
+import "bootstrap-datepicker";

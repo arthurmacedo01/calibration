@@ -1,4 +1,5 @@
 <%= javascript_import_module_tag 'order_item' %>
+<%= javascript_import_module_tag 'datepicker' %>
 
 
 <%= form_with(model: order_item, class:"container-sm card card-body", id: "order_item_form") do |form| %>
@@ -49,7 +50,7 @@
   <div class="row">
     <div class="col form-group mb-2">
       <%= form.label :date, style: "display: block" %>
-      <%= form.date_field :date, class: "form-control", required: true%>
+      <%= form.text_field :date, class: "form-control datepicker", value: (order_item&.date.present? ? I18n.l(order_item.date) : nil), required: true %>
     </div>    
     <div class="col form-group mb-2">
       <%= form.label :generated_document, style: "display: block" %>
@@ -57,11 +58,11 @@
     </div>
     <div class="col form-group mb-2">
       <%= form.label :generated_document_date, style: "display: block" %>
-      <%= form.date_field :generated_document_date, class: "form-control"%>
+      <%= form.text_field :generated_document_date, class: "form-control datepicker", value:(order_item&.generated_document_date.present? ? I18n.l(order_item.generated_document_date) : nil)%>
     </div>
     <div class="col form-group mb-2">
       <%= form.label :delivery_date, style: "display: block" %>
-      <%= form.date_field :delivery_date, class: "form-control"%>
+     <%= form.text_field :delivery_date, class: "form-control datepicker", value:(order_item&.delivery_date.present? ? I18n.l(order_item.delivery_date) : nil)%>
     </div>
   </div>
   <div class="col form-group my-auto">

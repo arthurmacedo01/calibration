@@ -12,3 +12,6 @@ pin "bootstrap", to: "bootstrap/dist/js/bootstrap.js"
 pin "@popperjs/core", to: "https://ga.jspm.io/npm:@popperjs/core@2.11.8/lib/index.js"
 
 pin "order_item"
+pin "datepicker"
+
+pin "bootstrap-datepicker"
