@@ -1,24 +1,12 @@
-# README
+# Calibration Management System (Ruby on Rails)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
 
-Things you may want to cover:
+The Calibration Management System is a web-based application written in Ruby on Rails (RoR). It serves as a comprehensive solution for managing records and orders of device calibration in the calibration sector. The system facilitates the registration of devices, tracks their calibration status, and offers tools for generating performance reports and organizing calibration-related data.
 
-* Ruby version
+## Features
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- **Device Registration:** Allows the registration of devices requiring calibration, capturing relevant details and specifications.
+- **Status Tracking:** Tracks the calibration status of each registered device, indicating whether calibration is due or completed.
+- **Order Management:** Manages calibration orders, providing an organized system for scheduling and completing calibration tasks.
+- **Performance Reports:** Generates reports to assess the performance of the calibration sector, offering insights into completed tasks, pending orders, and overall efficiency.
